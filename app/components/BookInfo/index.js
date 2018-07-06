@@ -7,7 +7,6 @@ const BookImage = styled.img`
 `;
 
 const Info = styled.div`
-  border: 1px solid #ddd;
   width: 250px;
   margin: 10px;
   display: flex;
@@ -15,7 +14,23 @@ const Info = styled.div`
   align-items: center;
   flex-direction: column;
   padding: 10px;
+  box-shadow: ${_ => _.theme.boxShadow.shadowX} ${_ => _.theme.boxShadow.shadowY}
+    ${_ => _.theme.boxShadow.spread} ${_ => _.theme.boxShadow.shadowColor};
+   background-color: ${_ => _.theme.backgroundColor};
+   
 `;
+
+Info.defaultProps = {
+  theme: {
+    boxShadow: {
+      shadowX: '2px',
+      shadowY: '2px',
+      spread: '5px',
+      shadowColor: 'red',
+    },
+    backgrounColor: '#fff',
+  },
+};
 
 const BookInfo = props => {
   const { imageSrc, title, rating } = props;

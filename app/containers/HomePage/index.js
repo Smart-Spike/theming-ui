@@ -8,12 +8,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import BookList from 'containers/BookList';;
-
+import BookList from 'containers/BookList';
+import Comments from 'components/Comments/Loadable';
 
 function HomePage() {
   return <div>
     <BookList/>
+    <Comments/>
   </div>;
 }
 
