@@ -13,17 +13,34 @@
 
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-
-import HomePage from 'containers/HomePage/Loadable';
+import Login from 'containers/Login';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import Header from 'components/Header';
+import styled from 'styled-components';
+import HomePage from 'containers/HomePage';
 
-export default function App() {
-  return (
-    <div>
+const App = styled.div`
+  font-family: 'Helvetica Neue';
+  font-weight: lighter;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Content = styled.div`
+ flex: 1;
+ display: flex;
+`;
+
+export default () => (
+  <App>
+    <Header />
+    <Content>
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={Login} />
+        <Route exact path="/home" component={HomePage} />
         <Route component={NotFoundPage} />
       </Switch>
-    </div>
-  );
-}
+    </Content>
+  </App>
+);
